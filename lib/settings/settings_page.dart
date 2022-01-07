@@ -5,37 +5,42 @@ class SettingsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: const [
-          Text(
-            'Account Settings',
-            style: TextStyle(
-              fontSize: 24,
-              color: Colors.white,
-            ),
-          ),
-          Card(
-            margin: EdgeInsets.only(
-              top: 30,
-            ),
-            color: Colors.white,
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                horizontal: 80.0,
-                vertical: 30,
+    return Scaffold(
+      body: Container(
+        color: Colors.grey[400],
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              Text(
+                'Account Settings',
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                ),
               ),
-              child: Text(
-                '''user234
+              Card(
+                margin: EdgeInsets.only(
+                  top: 30,
+                ),
+                color: Colors.white,
+                child: Padding(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 80.0,
+                    vertical: 30,
+                  ),
+                  child: Text(
+                    '''user234
 
 user234@email.com''',
-                style: TextStyle(fontSize: 15),
-                textAlign: TextAlign.center,
-              ),
-            ),
-          )
-        ],
+                    style: TextStyle(fontSize: 15),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
