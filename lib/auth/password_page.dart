@@ -22,24 +22,23 @@ class PasswordPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextField(
-            controller: _passwordController,
-            obscureText: true,
-            textAlign: TextAlign.center,
-            decoration: kCustomInputDecorator.copyWith(
-                hintText: "Enter your password."),
-          ),
-          const SizedBox(
-            height: 50.0,
-          ),
-          IconButton(
-            onPressed: () => onNext.call(_passwordController.text),
-            iconSize: 70.0,
-            color: Colors.blueGrey,
-            icon: const Icon(
-              Icons.navigate_next,
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20.0,
+              vertical: 50.0,
             ),
-          )
+            child: TextField(
+              controller: _passwordController,
+              obscureText: true,
+              textAlign: TextAlign.center,
+              decoration: kCustomInputDecorator.copyWith(
+                  hintText: "Enter your password."),
+            ),
+          ),
+          CustomOutlineButton(
+            title: 'Login',
+            onTap: () => onNext.call(_passwordController.text),
+          ),
         ],
       ),
     );

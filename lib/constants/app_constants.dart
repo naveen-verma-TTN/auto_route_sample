@@ -20,3 +20,37 @@ const kCustomInputDecorator = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),
 );
+
+class CustomOutlineButton extends StatelessWidget {
+  const CustomOutlineButton(
+      {Key? key, required this.title, required this.onTap})
+      : super(key: key);
+
+  final String title;
+  final Function onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton(
+      onPressed: () => onTap.call(),
+      style: OutlinedButton.styleFrom(
+        backgroundColor: Colors.green,
+        maximumSize: const Size(200.0, 100.0),
+        shape: const StadiumBorder(),
+      ),
+      child: ListTile(
+        leading: const Icon(
+          Icons.login,
+          color: Colors.white,
+        ),
+        title: Text(
+          title,
+          style: const TextStyle(
+            color: Colors.white,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+      ),
+    );
+  }
+}

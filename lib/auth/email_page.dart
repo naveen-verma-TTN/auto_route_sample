@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:auto_route_sample/constants/app_constants.dart';
 import 'package:flutter/material.dart';
 
@@ -22,23 +23,37 @@ class EmailPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          TextField(
-            controller: _emailController,
-            textAlign: TextAlign.center,
-            decoration:
-                kCustomInputDecorator.copyWith(hintText: "Enter your email."),
-          ),
-          const SizedBox(
-            height: 50.0,
-          ),
-          IconButton(
-            onPressed: () => onNext.call(_emailController.text),
-            iconSize: 70.0,
-            color: Colors.blueGrey,
-            icon: const Icon(
-              Icons.navigate_next,
+          Padding(
+            padding:
+                const EdgeInsets.symmetric(horizontal: 20.0, vertical: 50.0),
+            child: TextField(
+              controller: _emailController,
+              textAlign: TextAlign.center,
+              decoration:
+                  kCustomInputDecorator.copyWith(hintText: "Enter your email."),
             ),
-          )
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              IconButton(
+                onPressed: () => context.router.pop(),
+                iconSize: 70.0,
+                color: Colors.blueGrey,
+                icon: const Icon(
+                  Icons.navigate_before,
+                ),
+              ),
+              IconButton(
+                onPressed: () => onNext.call(_emailController.text),
+                iconSize: 70.0,
+                color: Colors.blueGrey,
+                icon: const Icon(
+                  Icons.navigate_next,
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

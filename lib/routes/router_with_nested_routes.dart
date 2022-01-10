@@ -9,6 +9,8 @@ import 'package:auto_route_sample/orders/orders_wrapper.dart';
 import 'package:auto_route_sample/posts/posts_page.dart';
 import 'package:auto_route_sample/posts/single_post_page.dart';
 import 'package:auto_route_sample/settings/settings_page.dart';
+import 'package:auto_route_sample/users/invaild_user_page.dart';
+import 'package:auto_route_sample/users/user_guard.dart';
 import 'package:auto_route_sample/users/user_profile_page.dart';
 import 'package:auto_route_sample/users/users_page.dart';
 
@@ -49,7 +51,12 @@ import 'package:auto_route_sample/users/users_page.dart';
             ),
             AutoRoute(
               path: ':userId',
+              guards: [UserGuard],
               page: UserProfilePage,
+            ),
+            AutoRoute(
+              path: 'invalidUserRoute',
+              page: InvalidUserPage,
             ),
           ],
         ),

@@ -27,10 +27,12 @@ class _LoginWrapperPageState extends State<LoginWrapperPage> {
           });
         }),
         if (email.isNotEmpty)
-          PasswordRoute(onNext: (result) async {
+          PasswordRoute(onNext: (String pass) async {
             try {
-              var isSuccess = await validateEmailPassword(email, result);
-              widget.onLogin(isSuccess);
+              if (pass.isNotEmpty) {
+                var isSuccess = await validateEmailPassword(email, pass);
+                widget.onLogin(isSuccess);
+              }
             } catch (e) {
               print('Exception: $e');
             }
