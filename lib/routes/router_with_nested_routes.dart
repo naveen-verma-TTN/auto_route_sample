@@ -1,8 +1,11 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:auto_route_sample/auth/email_page.dart';
+import 'package:auto_route_sample/auth/login_wrapper.dart';
+import 'package:auto_route_sample/auth/password_page.dart';
 import 'package:auto_route_sample/home_page_with_nav.dart';
 import 'package:auto_route_sample/orders/order_history.dart';
 import 'package:auto_route_sample/orders/order_page.dart';
-import 'package:auto_route_sample/orders/orders_wrapper_page.dart';
+import 'package:auto_route_sample/orders/orders_wrapper.dart';
 import 'package:auto_route_sample/posts/posts_page.dart';
 import 'package:auto_route_sample/posts/single_post_page.dart';
 import 'package:auto_route_sample/settings/settings_page.dart';
@@ -74,6 +77,14 @@ import 'package:auto_route_sample/users/users_page.dart';
         ),
       ],
     ),
+    AutoRoute(
+      path: '/login',
+      page: LoginWrapperPage,
+      children: [
+        AutoRoute(page: EmailPage),
+        AutoRoute(page: PasswordPage),
+      ],
+    )
   ],
 )
 class $AppRouterWithNav {}

@@ -26,6 +26,47 @@ class UsersPage extends StatelessWidget {
                   ),
                 ),
               ),
+            OutlinedButton(
+              onPressed: () {
+                context.router.root.push(LoginWrapperRoute(onLogin: (result) {
+                  String mesg;
+                  if (result) {
+                    mesg = 'LoggedIn successfully';
+                  } else {
+                    mesg = 'Login failed';
+                  }
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                        mesg,
+                        style: const TextStyle(
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.w700,
+                        ),
+                      ),
+                    ),
+                  );
+                }));
+              },
+              style: OutlinedButton.styleFrom(
+                backgroundColor: Colors.green,
+                maximumSize: const Size(200.0, 100.0),
+                shape: const StadiumBorder(),
+              ),
+              child: const ListTile(
+                leading: Icon(
+                  Icons.login,
+                  color: Colors.white,
+                ),
+                title: Text(
+                  'Login',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.w700,
+                  ),
+                ),
+              ),
+            )
           ],
         ),
       ),
